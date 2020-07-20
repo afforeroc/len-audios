@@ -5,6 +5,7 @@
 # sudo apt-get install lame
 # sudo apt-get install libsox-fmt-mp3
 
+import sys
 import os
 import subprocess
 
@@ -84,8 +85,9 @@ def seconds_to_dec_minutes(total_seconds):
 
 
 def main():
-    """Convert a certain number seconds to minutes."""
-    ffprobe_seconds, sox_seconds = obtain_total_seconds('audios')
+    """Calculate the length of all audios (in minutes) of a folder."""
+    audios_folder = sys.argv[1]
+    ffprobe_seconds, sox_seconds = obtain_total_seconds(audios_folder)
     ffprobe_minutes = seconds_to_dec_minutes(ffprobe_seconds)
     sox_minutes = seconds_to_dec_minutes(sox_seconds)
     print('Using ffprobe')
