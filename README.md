@@ -1,5 +1,5 @@
-# IBM Speech To Text Tools
-Some tools to check elements of IBM STT service.
+# Length of audios
+Scripts to calculate the length of all audios of a folder.
 
 ## System requeriments
 * Ubuntu 20.04 LTS
