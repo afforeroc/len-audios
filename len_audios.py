@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Convert a certain number seconds to minutes."""
-# sudo apt-get install sox
-# sudo apt-get install lame
-# sudo apt-get install libsox-fmt-mp3
 
 import sys
 import os
@@ -63,6 +60,7 @@ def obtain_total_seconds(audios_folder):
     sox_seconds = 0
     for audio_file in os.listdir(audios_folder):
         audio_pathfile = os.path.join(audios_folder, audio_file)
+        print(audio_pathfile)
         audio_pathfile, flag_mp3 = add_mp3_ext(audio_pathfile)
         ffprobe_seconds += ffprobe_obtain_length(audio_pathfile)
         sox_seconds += sox_obtain_length(audio_pathfile)
@@ -85,17 +83,13 @@ def seconds_to_dec_minutes(total_seconds):
 
 
 def main():
-    """Calculate the length of all audios (in minutes) of a folder."""
     audios_folder = sys.argv[1]
+    print(f'Reading all audio files from {audios_folder} folder ...')
     ffprobe_seconds, sox_seconds = obtain_total_seconds(audios_folder)
     ffprobe_minutes = seconds_to_dec_minutes(ffprobe_seconds)
     sox_minutes = seconds_to_dec_minutes(sox_seconds)
-    print('Using ffprobe')
-    #print(f'{ffprobe_seconds} seconds')
-    print(f'{ffprobe_minutes} minutes\n')
-    print('Using sox')
-    #print(f'{sox_seconds} seconds')
-    print(f'{sox_minutes} minutes')
+    print(f'Using ffprobe: {ffprobe_minutes} minutes')
+    print(f'Using sox: {sox_minutes} minutes')
 
 
 if __name__ == '__main__':
