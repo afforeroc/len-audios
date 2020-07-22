@@ -1,10 +1,10 @@
 # Total lenght of all mp3 audios in minutes
-Python script to calculate total length of all mp3 audios in minutes.
+Python script to calculate total length of all mp3 audios in minutes using `ffmpeg`, `sox` and `libsox-fmt-mp3`.
 
 ## System requeriments
 * Ubuntu 20.04 LTS
 
-## 1. Install Python3
+### 1. Install Python3
 Install the latest version of `Python3` and verify their version.
 ```
 $ sudo apt install python3
@@ -13,16 +13,16 @@ $ sudo apt install python3
 $ python3 --version
 ```
 
-## 2. Install neccessary software
-Install `ffmpeg`, `sox`, and `libsox-fmt-mp3` packages:
+### 2. Install neccessary software
+Install `ffmpeg`, `sox`, and `libsox-fmt-mp3` software.
 ```
 $ sudo apt-get install ffmpeg sox libsox-fmt-mp3
 ```
 
-## 3. Run the script
+### 3. Run the script
 Delete the `deleteme` file. Put the script outside the folder that contains audio files. Run the script adding as argument the mentioned folder.
 ```
-$ python3 len_audios.sh audios/
+$ python3 len_audios.py audios/
 ```
 
 ### 4. Output
